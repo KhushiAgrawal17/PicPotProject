@@ -1,31 +1,31 @@
 import React from "react";
-import UserItem from "./UserItem";
+
+import UsersItem from "./UserItem";
 import "./UserList.css";
 
-const UserList=(props)=>{
-    if(props.items.length===0){
-        return (
-            <div className="center">
-                <h2>No users exists</h2>
-            </div>
-        )
-    }
- return (
+const UsersList = (props) => {
+  if (props.items.length === 0) {
+    return (
+      <div className="center">
+        <h2>No users exists</h2>
+      </div>
+    );
+  }
+  return (
     <ul className="userlist">
-        {props.items.map((user)=>{
-            return(
-               <UserItem
-            key={user.id}
-            id={user.id}
+      {props.items.map((user) => {
+        return (
+          <UsersItem
+            key={user._id}
+            id={user._id}
             name={user.name}
             pic={user.pic}
-            locationcount={user.numberoflocations}
-            />
-            );
-        })}
+            locationcount={user.locationsid.length}
+          />
+        );
+      })}
     </ul>
- )
+  );
 };
 
-
-export default UserList;
+export default UsersList;
